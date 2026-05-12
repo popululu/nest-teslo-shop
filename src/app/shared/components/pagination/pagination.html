@@ -1,0 +1,23 @@
+<div class="join flex justify-center items-center">
+
+  @for (page of getPagesList(); track page) {
+    <!-- [routerLink]="[]" navega a la misma pagina
+     tienes que ponerlo para que funcione queryParams y a este
+     le pasas la pagina que estas iterando con el for -->
+    <button
+    class="join-item btn"
+    [class.btn-primary]="page === activePage()"
+    [routerLink]="[]"
+    [queryParams]="{ page: page }"
+    (click)="activePage.set(page)"
+  >
+    {{ page }}
+  </button>
+  }
+    <!--  -->
+    @empty {
+    <p>No hay páginas</p>
+    }
+
+  <!-- <button class="join-item btn btn-disabled">...</button> -->
+</div>
